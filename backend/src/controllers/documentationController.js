@@ -4,7 +4,7 @@ import {
     getAllDocumentation,
     updateDocumentation,
     deleteDocumentation
-} from '../services/documentationService.js';
+} from '../services/DocumentationService.js';
 import { validationResult } from 'express-validator';
 import mongoose from 'mongoose';
 import Cover from '../models/Cover.js';
