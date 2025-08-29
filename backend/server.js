@@ -49,12 +49,26 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Middlewares de seguridad y parseo
+// Configuración de CORS
+const allowedOrigins = [
+  'http://localhost:5173', // Origen de desarrollo del frontend
+  // Agrega aquí la URL de tu frontend en producción cuando la tengas
+  // 'https://tu-frontend.onrender.com' 
+];
+
 app.use(cors({
-  origin: 'http://localhost:5173',
+  origin: function (origin, callback) {
+    // Permitir peticiones sin origen (como Postman o apps móviles)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) === -1) {
+      const msg = 'La política de CORS para este sitio no permite acceso desde el origen especificado.';
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
 }));
-app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
