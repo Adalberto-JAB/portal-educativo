@@ -1,0 +1,195 @@
+@import "tailwindcss";
+
+/* 🎨 Variables de diseño */
+@theme {
+  /* Definición de colores base de la paleta */
+  --color-dark-indigo: #1A237E,
+  --color-medium-blue: #2196F3,
+  --color-amber-orange: #FFC107,
+  --color-light-gray-bg: #F5F5F5,
+  --color-dark-gray-text: #212121,
+
+  /* Nuevo color para submenús del navbar */
+  --color-dark-indigo-light: #2b368c,
+
+
+
+
+
+  /* Referencias a las variables CSS para usar en clases de Tailwind - No funcionan */
+  --color-bg-primary: var(--color-bg-primary),
+  --color-bg-secondary: var(--color-bg-secondary),
+  --color-text-primary: var(--color-text-primary),
+  --color-text-secondary: var(--color-text-secondary),
+  --color-accent-primary: var(--color-accent-primary),
+  --color-accent-secondary: var(--color-accent-secondary),
+  --color-border-color: var(--color-border),
+  --color-shadow-color: var(--color-shadow),
+  --color-input-bg: var(--color-input-bg),
+  --color-input-border: var(--color-input-border),
+  --color-input-placeholder: var(--color-input-placeholder),
+
+  /* Sacado desde la IA */
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Merriweather", serif;
+  --color-primary: #0ea5e9;
+  --color-secondary: #9333ea;
+  --color-neutral: #f3f4f6;
+  --radius-base: 0.5rem;
+  --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --color-bg-primary: #1A237E; /* Azul Oscuro/Índigo */
+  --color-accent-primary: #2196F3; /* Azul Claro/Medio */
+  --color-text-primary: #2196F3; /* Azul Claro/Medio */
+}
+
+
+/* Definición de variables CSS para el tema claro */
+:root {
+ /* --color-bg-primary: #F5F5F5; /* Gris Claro/Blanco Roto */
+ --color-bg-primary: oklch(95% 0.015 240); /* Gris Claro/Blanco Roto */
+ --color-bg-secondary: #FFFFFF; /* Blanco para elementos secundarios */
+ --color-text-primary: #1A237E; /* Azul Oscuro/Índigo */
+ --color-text-secondary: #4A5568; /* Gris medio para texto secundario */
+/* --color-accent-primary: #2196F3; /* Azul Claro/Medio */
+ --color-accent-primary: #004D99; /* Azul Claro/Medio */
+ --color-accent-secondary: #FFC107; /* Naranja/Ámbar */
+ --color-border: #E2E8F0;
+ --color-shadow: rgba(0, 0, 0, 0.1);
+ --color-input-bg: #FFFFFF;
+ --color-input-border: #CBD5E0;
+ --color-input-placeholder: #A0AEC0;
+}
+
+/* Definición de variables CSS para el tema oscuro */
+.dark {
+ /* --color-bg-primary: #1A237E; /* Azul Oscuro/Índigo */
+ --color-bg-primary: #262626; /* Azul Oscuro/Índigo */
+ --color-bg-secondary: #2D3748; /* Gris oscuro para elementos secundarios */
+ --color-text-primary: #F5F5F5; /* Gris Claro/Blanco Roto */
+ --color-text-secondary: #A0AEC0; /* Gris claro para texto secundario */
+ /* --color-accent-primary: #2196F3; /* Azul Claro/Medio */
+ --color-accent-primary: #2196F3; /* Azul Claro/Medio */
+ --color-accent-secondary: #FFC107; /* Naranja/Ámbar */
+ --color-border: #4A5568;
+ --color-shadow: rgba(0, 0, 0, 0.5);
+ --color-input-bg: #1A202C; /* Un gris muy oscuro */
+ --color-input-border: #4A5568;
+ --color-input-placeholder: #718096;
+}
+
+/* Estilos globales para el body y html */
+html, body, #root {
+ height: 100%;
+ margin: 0;
+ padding: 0;
+ background-color: var(--color-bg-primary);
+ color: var(--color-text-primary);
+ transition: background-color 0.3s ease, color 0.3s ease;
+ font-family: 'Inter', sans-serif;
+ -webkit-transition: background-color 0.3s ease, color 0.3s ease;
+ -moz-transition: background-color 0.3s ease, color 0.3s ease;
+ -ms-transition: background-color 0.3s ease, color 0.3s ease;
+ -o-transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Estilos generales para inputs que respetan el tema */
+input, textarea, select {
+ background-color: var(--color-input-bg);
+ border-color: var(--color-input-border);
+ color: var(--color-text-primary);
+ @apply rounded-md px-3 py-2 border focus:outline-none focus:ring-2;
+ /* focus:ring-accent-primary */
+}
+
+input::placeholder, textarea::placeholder {
+ color: var(--color-input-placeholder);
+}
+
+/* Estilos de la barra de desplazamiento para adaptarse al tema */
+::-webkit-scrollbar {
+ width: 10px;
+ height: 10px;
+}
+
+::-webkit-scrollbar-track {
+ background: var(--color-bg-primary);
+ border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+ background: var(--color-accent-primary);
+ border-radius: 10px;
+ border: 2px solid var(--color-bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+ background: var(--color-accent-secondary);
+}
+
+html {
+ scrollbar-width: thin;
+ scrollbar-color: var(--color-accent-primary) var(--color-bg-primary);
+}
+
+/* Estilos para accesibilidad */
+html.high-contrast {
+ filter: contrast(1.5);
+}
+
+html.no-animations * {
+ transition: none !important;
+ animation: none !important;
+ -webkit-animation: none !important;
+ -webkit-transition: none !important;
+ -moz-transition: none !important;
+ -ms-transition: none !important;
+ -o-transition: none !important;
+}
+
+.font-small {
+ font-size: 14px;
+}
+.font-medium {
+ font-size: 16px;
+}
+.font-large {
+ font-size: 18px;
+}
+
+/* Estilos para botones de ejemplo usando las variables de tema */
+/*
+.btn-primary {
+ @apply bg-accent-primary text-white font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 hover:bg-opacity-80;
+}
+
+.btn-secondary {
+ @apply bg-accent-secondary text-dark-gray-text font-bold py-2 px-4 rounded-lg shadow-md transition duration-300 hover:bg-opacity-80;
+}
+*/
+
+/* Estilos para las acciones de lección (del archivo de muestra) */
+.lesson-actions {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ justify-content: flex-end;
+}
+
+.lesson-actions .view-button {
+ margin-right: auto;
+}
+
+.lesson-actions .edit-delete-group {
+ display: flex;
+ gap: 8px;
+}
+
+/* Nueva utilidad para deshabilitar transiciones durante el arrastre */
+.no-transition {
+ transition: none !important;
+}
+
+/* Nuevo color para el fondo de los submenús móviles del Navbar */
+.bg-dark-indigo-light {
+ background-color: #2b368c; /* Un tono más claro de dark-indigo para los submenús */
+}

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title><%= typeof title !== 'undefined' ? title : 'Portal Educativo' %></title>
+   <!-- Importación de Tailwind CSS (asegúrate de que output.css exista o ajusta la ruta) -->
+   <link href="/styles/output.css" rel="stylesheet">
+   <!-- Puedes añadir tus propios estilos CSS personalizados aquí si es necesario -->
+   <link href="/styles/styles.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+   <!-- Incluir la barra de navegación -->
+   <%- include('partials/navbar') %>
+
+   <main class="flex-grow container mx-auto p-4">
+       <!-- El contenido específico de cada vista se inyectará aquí -->
+       <%- body %>
+   </main>
+
+   <!-- Incluir el pie de página -->
+   <%- include('partials/footer') %>
+</body>
+</html>

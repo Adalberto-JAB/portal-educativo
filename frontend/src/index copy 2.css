@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+
+/* 🌞 Tema Claro */
+.light {
+  --color-bg-primary: oklch(95% 0.015 240); /* Fondo general */ 
+  --color-text-primary: oklch(27.5% 0.05 260); /* Texto principal */
+  --color-text-secondary: oklch(42% 0.04 260); /* Texto secundario */
+  --color-text-emphasis: oklch(34% 0.045 260); /* Énfasis leve */
+  --color-text-error: oklch(65% 0.18 30); /* Mensajes de error */
+  --color-text-action: oklch(52% 0.15 250); /* Enlaces y acciones */
+  --color-box-primary: oklch(100% 0 0); /* Fondo de cajas */
+  --color-box-secondary: oklch(93% 0.015 240); /* Fondo interno de cajas */
+  --color-button-accept: oklch(58% 0.18 250); /* Botón positivo */
+  --color-button-acceptHover: oklch(42% 0.12 250); /* Hover botón positivo */
+  --color-button-cancel: oklch(93% 0.015 240); /* Botón cancelar */
+  --color-button-cancelHover: oklch(87% 0.015 240); /* Hover cancelar */
+  --color-button-delete: oklch(65% 0.19 30); /* Botón borrar */
+  --color-button-deleteHover: oklch(55% 0.18 30); /* Hover borrar */
+  --color-button-alert: oklch(82% 0.14 70); /* Botón alerta */
+  --color-button-alertHover: oklch(72% 0.16 60); /* Hover alerta */
+  --color-header: oklch(100% 0 0); /* Fondo del header */
+  --color-icon-neutral: oklch(34% 0.045 260); /* Íconos neutros */
+  --color-icon-info: oklch(58% 0.18 250); /* Íconos de información */
+  --color-icon-success: oklch(62% 0.18 140); /* Íconos de éxito */
+  --color-icon-alert: oklch(65% 0.18 30); /* Íconos de alerta */
+  --color-icon-warning: oklch(82% 0.14 70); /* Íconos de advertencia */
+}
+
+/* 🌚 Tema Oscuro */
+.dark {
+  --color-bg-primary: oklch(27.5% 0.05 260); /* Fondo general */          |
+  --color-text-primary: oklch(98% 0.01 240); /* Texto principal */
+  --color-text-secondary: oklch(75% 0.03 240); /* Texto secundario */
+  --color-text-emphasis: oklch(87% 0.015 240); /* Énfasis leve */
+  --color-text-error: oklch(75% 0.18 30); /* Mensajes de error */
+  --color-text-action: oklch(72% 0.18 250); /* Enlaces y acciones */
+  --color-box-primary: oklch(34% 0.045 260); /* Fondo de cajas */
+  --color-box-secondary: oklch(42% 0.04 260); /* Fondo interno de cajas */
+  --color-button-accept: oklch(72% 0.18 250); /* Botón positivo */
+  --color-button-cancel: oklch(42% 0.04 260); /* Botón cancelar */
+  --color-button-delete: oklch(78% 0.17 30); /* Botón borrar */
+  --color-button-alert: oklch(82% 0.14 70); /* Botón alerta */
+  --color-header: oklch(34% 0.045 260); /* Fondo del header */
+  --color-icon-neutral: oklch(75% 0.03 240); /* Íconos neutros */
+  --color-icon-info: oklch(72% 0.18 250); /* Íconos de información */
+  --color-icon-success: oklch(75% 0.18 140); /* Íconos de éxito */
+  --color-icon-alert: oklch(75% 0.18 30); /* Íconos de alerta */
+  --color-icon-warning: oklch(82% 0.14 70); /* Íconos de advertencia */
+}
+

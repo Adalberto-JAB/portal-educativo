@@ -1,0 +1,762 @@
+[
+  {
+    "name": "Biología General",
+    "description": "Introducción a los conceptos fundamentales de los seres vivos.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Química General",
+    "description": "Principios de química necesarios para la biología.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Ciencias de la Tierra",
+    "description": "Elementos de geología y otros procesos terrestres que afectan a la biología.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Matemática I y II",
+    "description": "Herramientas matemáticas para el análisis de datos biológicos.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Química Orgánica",
+    "description": "El estudio de los compuestos de carbono, base de la vida.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Biología Animal y Vegetal",
+    "description": "Clasificación y características de los reinos animal y vegetal.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Biología Celular y Molecular",
+    "description": "Procesos y estructuras a nivel celular y molecular.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Química Biológica",
+    "description": "Estudio de las biomoléculas.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Diversidad Vegetal I y II",
+    "description": "Clasificación y estudio de la flora.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Diversidad Animal I y II",
+    "description": "Clasificación y estudio de la fauna.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Biología de los Microorganismos",
+    "description": "Microorganismos y su rol en los ecosistemas.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Física",
+    "description": "Principios físicos aplicados a la biología.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Bioestadística I y II",
+    "description": "Análisis estadístico de datos biológicos.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Genética",
+    "description": "Transmisión de la herencia y los genes.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Ecología I y II",
+    "description": "Interacciones entre organismos y su entorno.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Fisiología Animal y Vegetal",
+    "description": "Funcionamiento de los organismos.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Evolución",
+    "description": "Procesos que explican el origen y la transformación de las especies.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Epistemología y Metodología de la Ciencia",
+    "description": "Fundamentos de la investigación científica.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Biología del Comportamiento",
+    "description": "Estudio del comportamiento animal.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Biología Sanitaria",
+    "description": "Enfermedades y su relación con el ambiente.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Parasitología",
+    "description": "Organismos parásitos y sus efectos.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Antropología Biológica",
+    "description": "Evolución humana y la diversidad.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Paleontología",
+    "description": "Fósiles y la historia de la vida.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Micología General Aplicada",
+    "description": "Estudio de los hongos.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Biología de la Conservación",
+    "description": "Estrategias para proteger la biodiversidad.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Evaluación de Poblaciones y Comunidades",
+    "description": "Técnicas para analizar poblaciones.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Biotecnología",
+    "description": "Uso de organismos vivos para aplicaciones tecnológicas.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Gestión de Recursos Naturales",
+    "description": "Manejo sostenible de los recursos naturales.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Estudio de Impacto Ambiental",
+    "description": "Evaluación de los efectos ambientales de proyectos.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Biología de Poblaciones Humanas y Sociedad",
+    "description": "La biología en el contexto social.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Tesis",
+    "description": "Trabajo final de investigación.",
+    "carreraName": "Licenciatura en Ciencias Biológicas"
+  },
+  {
+    "name": "Lingüística I",
+    "description": "Estructura de la lengua.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Introducción a la Literatura",
+    "description": "Conceptos y géneros literarios.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Lengua Española I",
+    "description": "Gramática y sintaxis del español.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Literatura Española I",
+    "description": "Obras y autores de la literatura española.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Historia del Arte",
+    "description": "El arte como manifestación cultural.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Introducción a la Filosofía",
+    "description": "Ideas filosóficas clave.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Teoría y Crítica Literaria I",
+    "description": "Análisis de textos literarios.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Lengua Española II",
+    "description": "Fonética y morfología del español.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Latín y Literatura Latina I",
+    "description": "Gramática y textos latinos.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Literatura Española II",
+    "description": "Continuación del estudio de la literatura española.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Literatura Hispanoamericana I",
+    "description": "Obras y autores de América Latina.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Lingüística II",
+    "description": "Ramas de la lingüística.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Teoría y Crítica Literaria II",
+    "description": "Teorías literarias contemporáneas.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Lengua Española III",
+    "description": "Semántica y pragmática del español.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Latín y Literatura Latina II",
+    "description": "Textos y análisis literario en latín.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Griego y Literatura Griega I",
+    "description": "Introducción a la lengua y literatura griega.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Literatura Hispanoamericana II",
+    "description": "Continuación del estudio de la literatura hispanoamericana.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Literatura Argentina I",
+    "description": "Obras y autores de la literatura argentina.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Semiótica",
+    "description": "Estudio de los signos y su significado.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Historia de la Lengua Española",
+    "description": "Evolución del español.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Dialectología Hispanoamericana",
+    "description": "Variedades del español en América.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Griego y Literatura Griega II",
+    "description": "Continuación del estudio de la lengua y literatura griega.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Literaturas Europeas I y II",
+    "description": "Introducción a las literaturas de Europa.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Literatura Argentina II",
+    "description": "Continuación del estudio de la literatura argentina.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Materias Optativas",
+    "description": "Permiten especialización en áreas como literatura regional o infantil.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Antropología Cultural",
+    "description": "Estudio de las culturas y sociedades.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Metodología de la Investigación",
+    "description": "Métodos para la investigación en humanidades.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Seminarios Optativos",
+    "description": "Profundización en áreas específicas.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Trabajo Final",
+    "description": "Trabajo de investigación para obtener el título.",
+    "carreraName": "Profesorado en Letras"
+  },
+  {
+    "name": "Introducción al Derecho",
+    "description": "Principios básicos del sistema jurídico.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Romano",
+    "description": "Fundamentos históricos del derecho occidental.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Filosofía del Derecho",
+    "description": "Reflexión sobre la justicia y el sistema legal.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Civil I",
+    "description": "Regulación de la persona, familia y bienes.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Constitucional",
+    "description": "Estudio de la Constitución Nacional.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Civil II y III",
+    "description": "Obligaciones y contratos.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Administrativo",
+    "description": "Relación entre el Estado y los ciudadanos.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Penal I",
+    "description": "Teoría del delito y las penas.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derechos Humanos y Garantías",
+    "description": "Protección de los derechos fundamentales.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Comercial",
+    "description": "Regulación de la actividad empresarial.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Penal II",
+    "description": "Tipos de delitos.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Civil IV y V",
+    "description": "Propiedad, derechos reales y sucesiones.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho del Trabajo y Seguridad Social",
+    "description": "Relaciones laborales y seguridad social.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Procesal Civil y Comercial",
+    "description": "Procedimientos judiciales.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Finanzas Públicas y Derecho Tributario",
+    "description": "Derecho fiscal.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Procesal Penal",
+    "description": "Procedimiento judicial en materia penal.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Internacional Público y Privado",
+    "description": "Normas entre Estados y personas de diferentes países.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Societario",
+    "description": "Regulación de las sociedades comerciales.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Derecho Ambiental",
+    "description": "Normas para la protección del medio ambiente.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Consultorio Jurídico",
+    "description": "Práctica profesional supervisada.",
+    "carreraName": "Abogacía"
+  },
+  {
+    "name": "Taller de Diseño Arquitectónico y Urbano",
+    "description": "Materia central donde se desarrollan proyectos de arquitectura y urbanismo.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Historia de la Arquitectura",
+    "description": "El estudio de las obras y movimientos arquitectónicos a lo largo de la historia.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Teoría de la Arquitectura",
+    "description": "Fundamentos teóricos del diseño.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Urbanismo y Planificación",
+    "description": "Diseño de la ciudad.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Sistemas de Representación",
+    "description": "Técnicas de dibujo y maquetado.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Matemática y Física",
+    "description": "Cálculos y principios para el diseño estructural y de instalaciones.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Instalaciones",
+    "description": "Diseño de sistemas de agua, luz, gas, etc.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Construcciones",
+    "description": "Materiales y procesos constructivos.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Estructuras",
+    "description": "Resistencia y estabilidad de las construcciones.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Sociología",
+    "description": "Impacto de la arquitectura en la sociedad.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Legislación y Ejercicio Profesional",
+    "description": "Normas y ética de la profesión.",
+    "carreraName": "Arquitectura"
+  },
+  {
+    "name": "Análisis Matemático",
+    "description": "Fundamentos matemáticos para la ingeniería.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Álgebra",
+    "description": "Fundamentos matemáticos para la ingeniería.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Geometría Analítica",
+    "description": "Fundamentos matemáticos para la ingeniería.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Física",
+    "description": "Principios físicos aplicados a la computación.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Programación",
+    "description": "Aprendizaje de lenguajes de programación.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Estructura de Datos y Algoritmos",
+    "description": "Organización de la información y solución de problemas.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Arquitectura de Computadoras",
+    "description": "El diseño interno de las computadoras.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Sistemas Operativos",
+    "description": "Funcionamiento de los sistemas operativos.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Bases de Datos",
+    "description": "Diseño y manejo de bases de datos.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Ingeniería de Software",
+    "description": "Metodología para el desarrollo de software.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Redes y Comunicaciones",
+    "description": "Principios de redes de computadoras.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Inteligencia Artificial",
+    "description": "Diseño de sistemas que simulan la inteligencia humana.",
+    "carreraName": "Ingeniería en Informática"
+  },
+  {
+    "name": "Teoría Antropológica",
+    "description": "Conceptos y autores clásicos de la antropología.",
+    "carreraName": "Licenciatura en Antropología Social y Cultural"
+  },
+  {
+    "name": "Antropología Social y Cultural",
+    "description": "El estudio de las culturas contemporáneas y sus dinámicas.",
+    "carreraName": "Licenciatura en Antropología Social y Cultural"
+  },
+  {
+    "name": "Antropología Histórica y Etnología Americana",
+    "description": "La historia de las culturas en América.",
+    "carreraName": "Licenciatura en Antropología Social y Cultural"
+  },
+  {
+    "name": "Sociología General",
+    "description": "Conceptos de sociología.",
+    "carreraName": "Licenciatura en Antropología Social y Cultural"
+  },
+  {
+    "name": "Metodología de la Investigación",
+    "description": "Técnicas de investigación cualitativa y cuantitativa.",
+    "carreraName": "Licenciatura en Antropología Social y Cultural"
+  },
+  {
+    "name": "Redacción de Proyectos de Investigación",
+    "description": "Preparación de proyectos académicos.",
+    "carreraName": "Licenciatura en Antropología Social y Cultural"
+  },
+  {
+    "name": "Prácticas de Campo",
+    "description": "Trabajo de investigación en contextos reales.",
+    "carreraName": "Licenciatura en Antropología Social y Cultural"
+  },
+  {
+    "name": "Administración General",
+    "description": "Conceptos básicos de administración.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Matemática y Estadística",
+    "description": "Herramientas cuantitativas para la gestión.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Contabilidad",
+    "description": "Registro y análisis de las operaciones financieras.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Microeconomía y Macroeconomía",
+    "description": "Funcionamiento de la economía a nivel individual y global.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Derecho Comercial y Laboral",
+    "description": "Normas legales aplicadas a la empresa.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Sistemas de Información",
+    "description": "Uso de la tecnología para la gestión.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Administración de Recursos Humanos",
+    "description": "Gestión del personal.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Administración de la Producción",
+    "description": "Optimización de los procesos de producción.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Marketing",
+    "description": "Estrategias de comercialización.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Finanzas Públicas y Administración Pública",
+    "description": "Gestión de los recursos del Estado.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Formulación y Evaluación de Proyectos",
+    "description": "Diseño y análisis de la viabilidad de nuevos proyectos.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Teoría de la Decisión",
+    "description": "Métodos para tomar decisiones en la empresa.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Régimen Tributario",
+    "description": "Impuestos y su aplicación.",
+    "carreraName": "Licenciatura en Administración"
+  },
+  {
+    "name": "Biología Celular",
+    "description": "La base de la vida.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Salud Comunitaria",
+    "description": "La salud a nivel de la comunidad.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Química y Física",
+    "description": "Principios de las ciencias básicas aplicados al cuerpo humano.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Anatomía",
+    "description": "Estructura del cuerpo humano.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Fisiología.",
+    "description": "Funcionamiento de los sistemas y órganos.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Histología",
+    "description": "Estudio de los tejidos.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Bioquímica",
+    "description": "Química de los seres vivos.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Patología",
+    "description": "Estudio de las enfermedades.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Farmacología",
+    "description": "Medicamentos y su efecto en el cuerpo.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Microbiología y Parasitología",
+    "description": "Estudio de los microorganismos que causan enfermedades.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Semiología",
+    "description": "Métodos para diagnosticar enfermedades.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Clínica Médica",
+    "description": "Diagnóstico y tratamiento de las enfermedades internas.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Clínica Quirúrgica",
+    "description": "Procedimientos y técnicas de cirugía.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Ginecología y Obstetricia",
+    "description": "Salud de la mujer y el embarazo.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Pediatría",
+    "description": "Salud de los niños.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Medicina Legal y Toxicología",
+    "description": "Aspectos legales y forenses de la medicina.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Especialidades",
+    "description": "Pasantías en diferentes áreas como Neurología, Dermatología, Traumatología, etc.",
+    "carreraName": "Medicina"
+  },
+  {
+    "name": "Criminalística General",
+    "description": "Principios y métodos de la criminalística.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Balística Forense",
+    "description": "Estudio de las armas de fuego y proyectiles.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Documentología",
+    "description": "Análisis de documentos para detectar falsificaciones.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Lofoscopia",
+    "description": "Identificación de personas por huellas dactilares y de pies.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Accidentología Vial",
+    "description": "Investigación de siniestros de tránsito.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Química Legal y Toxicología",
+    "description": "Análisis de sustancias químicas y venenos.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Medicina Legal",
+    "description": "La aplicación de la medicina a casos legales.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Anatomía Humana",
+    "description": "Estructura del cuerpo para el análisis forense.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Derecho Penal y Procesal Penal",
+    "description": "El marco legal para la investigación.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Metodología de la Investigación Científica",
+    "description": "La forma de llevar a cabo una investigación forense rigurosa.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Práctica Profesional",
+    "description": "Experiencia en laboratorios y escenas del crimen.",
+    "carreraName": "Licenciatura en Criminalística"
+  },
+  {
+    "name": "Materia sin identificación",
+    "description": "Un espacio entre las materias que no tiene una identificación especifica, a los fines de poder generar contenido genérico o que no titne una identidad específica.",
+    "carreraName": "Carrera sin identificación"
+  }
+]
