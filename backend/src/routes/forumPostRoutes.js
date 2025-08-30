@@ -7,7 +7,7 @@ import {
    deleteForumPost,
    approveForumPost
 } from '../controllers/forumPostController.js';
-import { protect, authorizeRoles } from '../middleware/authMiddleware.js';
+import { protect, authorizeRoles, getAuthUser } from '../middleware/authMiddleware.js';
 import forumPostValidationRules from '../validations/ForumPostValidationRules.js'; // Importar reglas de validación
 
 const router = express.Router();
