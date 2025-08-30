@@ -26,10 +26,10 @@ const DashboardPage = () => {
   // Si no está autenticado o es un invitado, muestra un mensaje de acceso denegado
   if (!isAuthenticated || user.role === 'guest') {
     return (
-      <div className="pt-20 p-4 sm:p-6 md:p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center flex flex-col items-center justify-center">
+      <div className="mt-28 p-4 sm:p-6 md:p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center flex flex-col items-center justify-center">
         <h1 className="text-2xl sm:text-3xl font-bold mb-4">Acceso Denegado</h1>
         <p className="text-lg mb-6">Por favor, inicia sesión para ver tu dashboard.</p>
-        <CustomButton type="primary" onClick={() => navigate('/login')} className="w-full max-w-xs">
+        <CustomButton variant="primary" onClick={() => navigate('/login')} className="w-full max-w-xs">
           Iniciar Sesión
         </CustomButton>
       </div>
@@ -51,7 +51,7 @@ const DashboardPage = () => {
 
   // Fallback por si el rol no es ninguno de los esperados
   return (
-    <div className="pt-20 p-8 text-center">
+    <div className="mt-28 p-8 text-center">
       <h1 className="text-3xl font-bold mb-4 text-red-500">Error de Rol</h1>
       <p className="text-lg">Tu rol de usuario no es válido para mostrar un dashboard.</p>
     </div>

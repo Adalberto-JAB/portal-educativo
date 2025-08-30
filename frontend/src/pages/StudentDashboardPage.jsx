@@ -1,17 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { useAuth } from '../context/AuthContext';
-import Loader from '../components/Loader';
-import CustomButton from '../components/CustomButton';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from "react";
+import { useAuth } from "../context/AuthContext";
+import Loader from "../components/Loader";
+import CustomButton from "../components/CustomButton";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 // Importar servicios necesarios
-import courseService from '../services/courseService';
-import documentationService from '../services/documentationService';
-import forumService from '../services/forumService';
-import conferenceService from '../services/conferenceService';
-import enrollmentService from '../services/enrollmentService';
-import commentService from '../services/commentService';
+import courseService from "../services/courseService";
+import documentationService from "../services/documentationService";
+import forumService from "../services/forumService";
+import conferenceService from "../services/conferenceService";
+import enrollmentService from "../services/enrollmentService";
+import commentService from "../services/commentService";
+import {
+  FaBook,
+  FaFileAlt,
+  FaCalendarAlt,
+  FaComments,
+  FaCommentDots,
+} from "react-icons/fa";
+import { GiCompass } from "react-icons/gi";
 
 const StudentDashboardPage = () => {
   const navigate = useNavigate();
@@ -36,13 +44,24 @@ const StudentDashboardPage = () => {
         const allComments = await commentService.getComments();
 
         const myEnrollments = await enrollmentService.getEnrollments(user.id);
-        const enrolledCourseIds = myEnrollments.map(e => e.course._id);
-        const enrolledCourses = allCourses.filter(c => enrolledCourseIds.includes(c._id));
-        const coursesWithProgress = enrolledCourses.map(course => ({ ...course, progress: Math.floor(Math.random() * 100) }));
-        const approvedDocs = allDocs.filter(d => d.isApproved);
-        const upcomingApprovedConferences = allConferences.filter(conf => conf.isApproved && new Date(conf.date) > new Date());
-        const myForumPosts = allForumPosts.filter(p => p.author && p.author._id === user.id && p.isApproved);
-        const myApprovedComments = allComments.filter(c => c.author && c.author._id === user.id && c.isApproved);
+        const enrolledCourseIds = myEnrollments.map((e) => e.course._id);
+        const enrolledCourses = allCourses.filter((c) =>
+          enrolledCourseIds.includes(c._id)
+        );
+        const coursesWithProgress = enrolledCourses.map((course) => ({
+          ...course,
+          progress: Math.floor(Math.random() * 100),
+        }));
+        const approvedDocs = allDocs.filter((d) => d.isApproved);
+        const upcomingApprovedConferences = allConferences.filter(
+          (conf) => conf.isApproved && new Date(conf.date) > new Date()
+        );
+        const myForumPosts = allForumPosts.filter(
+          (p) => p.author && p.author._id === user.id && p.isApproved
+        );
+        const myApprovedComments = allComments.filter(
+          (c) => c.author && c.author._id === user.id && c.isApproved
+        );
 
         const data = {
           enrolledCourses: coursesWithProgress,
@@ -55,9 +74,9 @@ const StudentDashboardPage = () => {
         setDashboardData(data);
         setError(null);
       } catch (err) {
-        console.error('Error fetching student dashboard data:', err);
-        setError('Could not load dashboard data. Please try again later.');
-        toast.error('Error loading dashboard data.');
+        console.error("Error fetching student dashboard data:", err);
+        setError("Could not load dashboard data. Please try again later.");
+        toast.error("Error loading dashboard data.");
       } finally {
         setLoading(false);
       }
@@ -78,130 +97,259 @@ const StudentDashboardPage = () => {
   if (error) {
     return (
       <div className="pt-20 p-4 sm:p-6 md:p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center">
-        <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-red-500">Error</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold mb-4 text-red-500">
+          Error
+        </h1>
         <p className="text-lg">{error}</p>
       </div>
     );
   }
 
   return (
-    <div className="pt-20 p-4 sm:p-6 md:p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
-      <h1 className="text-2xl sm:text-3xl font-bold mb-6">Dashboard de Estudiante</h1>
+    <div className="mt-28 p-4 sm:p-6 md:p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
+      <div className="max-w-[1024px] mx-auto">
+        <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">
+          Dashboard de Estudiante
+        </h1>
 
-      {dashboardData && (
-        <div className="space-y-8">
-          <h2 className="text-xl sm:text-2xl font-bold text-text-primary">Mi Aprendizaje</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="bg-bg-secondary p-4 sm:p-6 rounded-lg shadow-md border border-border-color col-span-full">
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">Cursos Inscritos ({dashboardData.enrolledCourses.length})</h3>
-              {dashboardData.enrolledCourses.length > 0 ? (
-                <ul className="space-y-4">
-                  {dashboardData.enrolledCourses.map((course) => (
-                    <li key={course._id} className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-bg-primary p-3 rounded-md shadow-sm gap-3">
-                      <span className="font-semibold text-text-primary mb-2 sm:mb-0 flex-grow">{course.title}</span>
-                      <div className="w-full sm:w-auto sm:ml-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
-                        <div className="w-full sm:w-48 flex items-center gap-2">
-                          <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                            <div className="bg-accent-primary h-2.5 rounded-full" style={{ width: `${course.progress}%` }}></div>
+        {dashboardData && (
+          <div className="space-y-8">
+            <h2 className="text-xl sm:text-2xl font-bold text-text-primary">
+              Mi Aprendizaje
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {/* Cursos Inscritos */}
+              <div className="bg-blue-100 dark:bg-blue-800 p-4 sm:p-6 rounded-lg shadow-md border border-blue-200 dark:border-blue-700 col-span-full">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg sm:text-xl font-semibold text-blue-800 dark:text-blue-100 mb-2">
+                    Cursos Inscritos ({dashboardData.enrolledCourses.length})
+                  </h3>
+                  <FaBook className="text-3xl text-blue-500 dark:text-blue-300" />
+                </div>
+                {dashboardData.enrolledCourses.length > 0 ? (
+                  <ul className="space-y-4">
+                    {dashboardData.enrolledCourses.map((course) => (
+                      <li
+                        key={course._id}
+                        className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-blue-50 dark:bg-blue-900 p-3 rounded-md shadow-sm gap-3"
+                      >
+                        <span className="font-semibold text-blue-800 dark:text-blue-100 mb-2 sm:mb-0 flex-grow">
+                          {course.title}
+                        </span>
+                        <div className="w-full sm:w-auto sm:ml-auto flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                          <div className="w-full sm:w-48 flex items-center gap-2">
+                            <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                              <div
+                                className="bg-accent-primary h-2.5 rounded-full"
+                                style={{ width: `${course.progress}%` }}
+                              ></div>
+                            </div>
+                            <span className="text-sm text-blue-600 dark:text-blue-300">
+                              {course.progress}%
+                            </span>
                           </div>
-                          <span className="text-sm text-text-secondary">{course.progress}%</span>
+                          <CustomButton
+                            variant="secondary"
+                            className="text-sm py-1 px-3"
+                            onClick={() => navigate(`/courses/${course._id}`)}
+                          >
+                            Continuar
+                          </CustomButton>
                         </div>
-                        <CustomButton type="secondary" className="text-sm py-1 px-3" onClick={() => navigate(`/courses/${course._id}`)}>Continuar</CustomButton>
-                      </div>
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-blue-700 dark:text-blue-200">
+                    No estás inscrito en ningún curso aún. ¡Explora nuestros{" "}
+                    <a
+                      onClick={() => navigate("/courses")}
+                      className="text-accent-primary hover:underline cursor-pointer"
+                    >
+                      cursos
+                    </a>
+                    !
+                  </p>
+                )}
+              </div>
+
+              {/* Documentos Recientes */}
+              <div className="bg-green-100 dark:bg-green-800 p-4 sm:p-6 rounded-lg shadow-md border border-green-200 dark:border-green-700">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg sm:text-xl font-semibold text-green-800 dark:text-green-100 mb-2">
+                    Documentos Recientes ({dashboardData.recentDocuments.length}
+                    )
+                  </h3>
+                  <FaFileAlt className="text-3xl text-green-500 dark:text-green-300" />
+                </div>
+                <ul className="list-disc list-inside text-green-700 dark:text-green-200 space-y-1">
+                  {dashboardData.recentDocuments.length > 0 ? (
+                    dashboardData.recentDocuments.map((doc) => (
+                      <li key={doc._id} className="truncate">
+                        <a
+                          onClick={() => navigate(`/documentation/${doc._id}`)}
+                          className="text-accent-primary hover:underline cursor-pointer"
+                        >
+                          {doc.title}
+                        </a>
+                      </li>
+                    ))
+                  ) : (
+                    <li>No hay documentos recientes.</li>
+                  )}
+                  {dashboardData.recentDocuments.length > 5 && (
+                    <li>
+                      <a
+                        onClick={() => navigate("/documentation")}
+                        className="text-accent-primary hover:underline cursor-pointer"
+                      >
+                        Ver más documentos...
+                      </a>
                     </li>
-                  ))}
+                  )}
                 </ul>
-              ) : (
-                <p className="text-text-secondary">No estás inscrito en ningún curso aún. ¡Explora nuestros <a onClick={() => navigate('/courses')} className="text-accent-primary hover:underline cursor-pointer">cursos</a>!</p>
-              )}
-            </div>
+              </div>
 
-            <div className="bg-bg-secondary p-4 sm:p-6 rounded-lg shadow-md border border-border-color">
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">Documentos Recientes ({dashboardData.recentDocuments.length})</h3>
-              <ul className="list-disc list-inside text-text-secondary space-y-1">
-                {dashboardData.recentDocuments.length > 0 ? (
-                  dashboardData.recentDocuments.map(doc => (
-                    <li key={doc._id} className="truncate">
-                      <a onClick={() => navigate(`/documentation/${doc._id}`)} className="text-accent-primary hover:underline cursor-pointer">
-                        {doc.title}
+              {/* Próximos Eventos */}
+              <div className="bg-yellow-100 dark:bg-yellow-800 p-4 sm:p-6 rounded-lg shadow-md border border-yellow-200 dark:border-yellow-700">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg sm:text-xl font-semibold text-yellow-800 dark:text-yellow-100 mb-2">
+                    Próximos Eventos ({dashboardData.upcomingEvents.length})
+                  </h3>
+                  <FaCalendarAlt className="text-3xl text-yellow-500 dark:text-yellow-300" />
+                </div>
+                <ul className="list-disc list-inside text-yellow-700 dark:text-yellow-200 space-y-1">
+                  {dashboardData.upcomingEvents.length > 0 ? (
+                    dashboardData.upcomingEvents.map((event) => (
+                      <li key={event._id} className="truncate">
+                        <a
+                          onClick={() => navigate(`/events/${event._id}`)}
+                          className="text-accent-primary hover:underline cursor-pointer"
+                        >
+                          {event.title} (
+                          {new Date(event.date).toLocaleDateString()})
+                        </a>
+                      </li>
+                    ))
+                  ) : (
+                    <li>No hay eventos próximos.</li>
+                  )}
+                  {dashboardData.upcomingEvents.length > 5 && (
+                    <li>
+                      <a
+                        onClick={() => navigate("/events")}
+                        className="text-accent-primary hover:underline cursor-pointer"
+                      >
+                        Ver más eventos...
                       </a>
                     </li>
-                  ))
-                ) : (
-                  <li>No hay documentos recientes.</li>
-                )}
-                {dashboardData.recentDocuments.length > 5 && (
-                  <li><a onClick={() => navigate('/documentation')} className="text-accent-primary hover:underline cursor-pointer">Ver más documentos...</a></li>
-                )}
-              </ul>
-            </div>
+                  )}
+                </ul>
+              </div>
 
-            <div className="bg-bg-secondary p-4 sm:p-6 rounded-lg shadow-md border border-border-color">
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">Próximos Eventos ({dashboardData.upcomingEvents.length})</h3>
-              <ul className="list-disc list-inside text-text-secondary space-y-1">
-                {dashboardData.upcomingEvents.length > 0 ? (
-                  dashboardData.upcomingEvents.map(event => (
-                    <li key={event._id} className="truncate">
-                      <a onClick={() => navigate(`/events/${event._id}`)} className="text-accent-primary hover:underline cursor-pointer">
-                        {event.title} ({new Date(event.date).toLocaleDateString()})
-                      </a>
-                    </li>
-                  ))
-                ) : (
-                  <li>No hay eventos próximos.</li>
-                )}
-                {dashboardData.upcomingEvents.length > 5 && (
-                  <li><a onClick={() => navigate('/events')} className="text-accent-primary hover:underline cursor-pointer">Ver más eventos...</a></li>
-                )}
-              </ul>
-            </div>
+              {/* Mi Actividad Reciente en Foro (Posts) */}
+              <div className="bg-purple-100 dark:bg-purple-800 p-4 sm:p-6 rounded-lg shadow-md border border-purple-200 dark:border-purple-700">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg sm:text-xl font-semibold text-purple-800 dark:text-purple-100 mb-2">
+                    Mi Actividad Reciente en Foro (
+                    {dashboardData.myRecentForumPosts.length})
+                  </h3>
+                  <FaComments className="text-3xl text-purple-500 dark:text-purple-300" />
+                </div>
+                <ul className="list-disc list-inside text-purple-700 dark:text-purple-200 space-y-1">
+                  {dashboardData.myRecentForumPosts.length > 0 ? (
+                    dashboardData.myRecentForumPosts.map((post) => (
+                      <li key={post._id} className="truncate">
+                        <a
+                          onClick={() => navigate(`/forums/${post._id}`)}
+                          className="text-accent-primary hover:underline cursor-pointer"
+                        >
+                          {post.title}
+                        </a>
+                      </li>
+                    ))
+                  ) : (
+                    <li>No has creado posts recientemente.</li>
+                  )}
+                </ul>
+              </div>
 
-            <div className="bg-bg-secondary p-4 sm:p-6 rounded-lg shadow-md border border-border-color">
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">Mi Actividad Reciente en Foro (Posts) ({dashboardData.myRecentForumPosts.length})</h3>
-              <ul className="list-disc list-inside text-text-secondary space-y-1">
-                {dashboardData.myRecentForumPosts.length > 0 ? (
-                  dashboardData.myRecentForumPosts.map(post => (
-                    <li key={post._id} className="truncate">
-                      <a onClick={() => navigate(`/forums/${post._id}`)} className="text-accent-primary hover:underline cursor-pointer">
-                        {post.title}
-                      </a>
-                    </li>
-                  ))
-                ) : (
-                  <li>No has creado posts recientemente.</li>
-                )}
-              </ul>
-            </div>
+              {/* Mis Comentarios Recientes */}
+              <div className="bg-indigo-100 dark:bg-indigo-800 p-4 sm:p-6 rounded-lg shadow-md border border-indigo-200 dark:border-indigo-700">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg sm:text-xl font-semibold text-indigo-800 dark:text-indigo-100 mb-2">
+                    Mis Comentarios Recientes (
+                    {dashboardData.myRecentComments.length})
+                  </h3>
+                  <FaCommentDots className="text-3xl text-indigo-500 dark:text-indigo-300" />
+                </div>
+                <ul className="list-disc list-inside text-indigo-700 dark:text-indigo-200 space-y-1">
+                  {dashboardData.myRecentComments.length > 0 ? (
+                    dashboardData.myRecentComments.map((comment) => (
+                      <li key={comment._id} className="truncate">
+                        <a
+                          onClick={() =>
+                            navigate(`/forums/${comment.forumPost._id}`)
+                          }
+                          className="text-accent-primary hover:underline cursor-pointer"
+                        >
+                          "{comment.content?.substring(0, 30) || ""}..."
+                        </a>
+                      </li>
+                    ))
+                  ) : (
+                    <li>No has hecho comentarios recientemente.</li>
+                  )}
+                </ul>
+              </div>
 
-            <div className="bg-bg-secondary p-4 sm:p-6 rounded-lg shadow-md border border-border-color">
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">Mis Comentarios Recientes ({dashboardData.myRecentComments.length})</h3>
-              <ul className="list-disc list-inside text-text-secondary space-y-1">
-                {dashboardData.myRecentComments.length > 0 ? (
-                  dashboardData.myRecentComments.map(comment => (
-                    <li key={comment._id} className="truncate">
-                      <a onClick={() => navigate(`/forums/${comment.forumPost._id}`)} className="text-accent-primary hover:underline cursor-pointer">
-                        "{comment.content?.substring(0, 30) || ''}..."
-                      </a>
-                    </li>
-                  ))
-                ) : (
-                  <li>No has hecho comentarios recientemente.</li>
-                )}
-              </ul>
-            </div>
-
-            <div className="bg-bg-secondary p-4 sm:p-6 rounded-lg shadow-md border border-border-color">
-              <h3 className="text-lg sm:text-xl font-semibold text-text-primary mb-2">Explorar y Descubrir</h3>
-              <ul className="list-disc list-inside text-text-secondary space-y-1">
-                <li><a onClick={() => navigate('/courses')} className="text-accent-primary hover:underline cursor-pointer">Ver todos los cursos</a></li>
-                <li><a onClick={() => navigate('/documentation')} className="text-accent-primary hover:underline cursor-pointer">Explorar documentación</a></li>
-                <li><a onClick={() => navigate('/forums')} className="text-accent-primary hover:underline cursor-pointer">Participar en foros</a></li>
-                <li><a onClick={() => navigate('/events')} className="text-accent-primary hover:underline cursor-pointer">Ver todos los eventos</a></li>
-              </ul>
+              {/* Explorar y Descubrir */}
+              <div className="bg-pink-100 dark:bg-pink-800 p-4 sm:p-6 rounded-lg shadow-md border border-pink-200 dark:border-pink-700">
+                <div className="flex justify-between items-start">
+                  <h3 className="text-lg sm:text-xl font-semibold text-pink-800 dark:text-pink-100 mb-2">
+                    Explorar y Descubrir
+                  </h3>
+                  <GiCompass className="text-3xl text-pink-500 dark:text-pink-300" />
+                </div>
+                <ul className="list-disc list-inside text-pink-700 dark:text-pink-200 space-y-1">
+                  <li>
+                    <a
+                      onClick={() => navigate("/courses")}
+                      className="text-accent-primary hover:underline cursor-pointer"
+                    >
+                      Ver todos los cursos
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      onClick={() => navigate("/documentation")}
+                      className="text-accent-primary hover:underline cursor-pointer"
+                    >
+                      Explorar documentación
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      onClick={() => navigate("/forums")}
+                      className="text-accent-primary hover:underline cursor-pointer"
+                    >
+                      Participar en foros
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      onClick={() => navigate("/events")}
+                      className="text-accent-primary hover:underline cursor-pointer"
+                    >
+                      Ver todos los eventos
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };

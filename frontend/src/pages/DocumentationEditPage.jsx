@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 //import DocumentationForm from '../../components/DocumentationForm';
@@ -48,7 +48,7 @@ const DocumentationEditPage = () => {
     if (loading) return <div className="pt-20 flex justify-center"><Loader /></div>;
 
     return (
-        <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
+        <div className="mt-28 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
             {initialData && <DocumentationForm onSubmit={handleUpdate} initialData={initialData} isEditing={true} />}
         </div>
     );

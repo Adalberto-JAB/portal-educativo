@@ -227,7 +227,7 @@ const ConferenceEditPage = () => {
 
           <div className="md:col-span-2 flex justify-end gap-4 mt-4">
             <CustomButton type="button" onClick={() => navigate('/events')} disabled={loading}>Cancelar</CustomButton>
-            <CustomButton type="submit" disabled={loading}>
+            <CustomButton variant="secondary" type="submit" disabled={loading}>
               {loading ? <Loader /> : 'Actualizar Congreso'}
             </CustomButton>
           </div>

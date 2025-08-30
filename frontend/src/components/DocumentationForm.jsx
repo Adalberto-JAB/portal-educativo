@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import CustomButton from './CustomButton';
 import Loader from './Loader';
@@ -222,8 +222,8 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
             </div>
 
             <div className="flex justify-end gap-4 mt-8">
-                <CustomButton type="button" variant="secondary" onClick={() => window.history.back()}>Cancelar</CustomButton>
-                <CustomButton type="submit" disabled={loading}>{isEditing ? 'Actualizar' : 'Crear'}</CustomButton>
+                <CustomButton type="button" variant="secondary" className="cursor-pointer" onClick={() => window.history.back()}>Cancelar</CustomButton>
+                <CustomButton type="submit" variant="primary" className="cursor-pointer" disabled={loading}>{isEditing ? 'Actualizar' : 'Crear'}</CustomButton>
             </div>
         </form>
     );

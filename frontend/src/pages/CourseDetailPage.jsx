@@ -129,7 +129,7 @@ const CourseDetailPage = () => {
               <p className="text-green-500 font-bold text-lg">Ya estás inscrito en este curso.</p>
             ) : (
               <CustomButton 
-                type="primary"
+                variant="primary"
                 onClick={handleEnroll}
                 disabled={enrollmentLoading}
               >
@@ -153,7 +153,7 @@ const CourseDetailPage = () => {
                   <p className="text-text-secondary text-sm">{lesson.description}</p>
                 </div>
                 {isEnrolled && (
-                  <CustomButton type="secondary" className="text-sm" onClick={() => navigate(`/lessons/${lesson._id}`)}>
+                  <CustomButton variant="secondary" className="text-sm" onClick={() => navigate(`/lessons/${lesson._id}`)}>
                     Ver Lección
                   </CustomButton>
                 )}

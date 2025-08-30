@@ -9,19 +9,56 @@ import forumService from '../services/forumService';
 import commentService from '../services/commentService';
 import Loader from '../components/Loader';
 import CustomButton from '../components/CustomButton';
-import { FaUser, FaCalendar, FaBook } from 'react-icons/fa';
+import { FaUser, FaCalendar, FaBook, FaCheck, FaTimes } from 'react-icons/fa';
 
 // --- Componente para un solo comentario ---
-const CommentItem = ({ comment }) => {
+const CommentItem = ({ comment, onAction }) => {
+  const { hasRole } = useAuth();
+  const isAdminOrTeacher = hasRole(['admin', 'teacher']);
   const avatarUrl = comment.author?.profilePictureURL || 'https://api.dicebear.com/8.x/adventurer/svg?seed=default-seed&sex=male';
 
+  const handleApprove = async () => {
+    try {
+      await commentService.approveComment(comment._id, true);
+      toast.success('Comentario aprobado.');
+      onAction(); // Refrescar lista
+    } catch (error) {
+      toast.error('Error al aprobar el comentario.');
+    }
+  };
+
+  const handleReject = async () => {
+    try {
+      await commentService.approveComment(comment._id, false);
+      toast.warn('Comentario rechazado.');
+      onAction(); // Refrescar lista
+    } catch (error) {
+      toast.error('Error al rechazar el comentario.');
+    }
+  };
+
   return (
-    <div className="flex items-start space-x-4 py-4">
+    <div className={`flex items-start space-x-4 py-4 ${!comment.isApproved ? 'bg-yellow-900/20' : ''}`}>
       <img src={avatarUrl} alt="Avatar del autor" className="w-12 h-12 rounded-full bg-bg-tertiary" />
       <div className="flex-1">
-        <div className="flex items-center space-x-2">
-          <span className="font-bold text-text-primary">{comment.author ? `${comment.author.name} ${comment.author.last_name}` : 'Anónimo'}</span>
-          <span className="text-xs text-text-secondary">{new Date(comment.createdAt).toLocaleString('es-ES')}</span>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center space-x-2">
+            <span className="font-bold text-text-primary">{comment.author ? `${comment.author.name} ${comment.author.last_name}` : 'Anónimo'}</span>
+            <span className="text-xs text-text-secondary">{new Date(comment.createdAt).toLocaleString('es-ES')}</span>
+            {!comment.isApproved && <span className="text-xs font-semibold text-yellow-400 ml-2">(Pendiente de Aprobación)</span>}
+          </div>
+          {isAdminOrTeacher && (
+            <div className="flex items-center space-x-2">
+              {!comment.isApproved ? (
+                <CustomButton onClick={handleApprove} size="sm" className="!py-1 !px-2 bg-green-600 hover:bg-green-700">
+                  <FaCheck />
+                </CustomButton>
+              ) : null}
+              <CustomButton onClick={handleReject} size="sm" className="!py-1 !px-2 bg-red-600 hover:bg-red-700">
+                <FaTimes />
+              </CustomButton>
+            </div>
+          )}
         </div>
         <p className="text-text-secondary mt-1">{comment.text}</p>
       </div>
@@ -127,7 +164,7 @@ const ForumPostDetailPage = () => {
   }
 
   return (
-    <div className="pt-20 p-4 md:p-8 min-h-screen bg-bg-primary text-text-primary">
+    <div className="mt-28 p-4 md:p-8 min-h-screen bg-bg-primary text-text-primary">
       <div className="max-w-4xl mx-auto bg-bg-secondary p-6 md:p-8 rounded-lg shadow-lg border border-border-color">
         
         <div className="border-b border-border-color pb-4 mb-6">
@@ -148,7 +185,7 @@ const ForumPostDetailPage = () => {
 
           <div className="mt-6 space-y-2 divide-y divide-border-color">
             {comments.length > 0 ? (
-              comments.map(comment => <CommentItem key={comment._id} comment={comment} />)
+              comments.map(comment => <CommentItem key={comment._id} comment={comment} onAction={fetchComments} />)
             ) : (
               <p className="text-text-secondary py-4">No hay comentarios todavía. ¡Sé el primero en comentar!</p>
             )}

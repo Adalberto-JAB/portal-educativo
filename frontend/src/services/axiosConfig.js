@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 
 // Crear una instancia de Axios
 const API = axios.create({
- baseURL: import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:5000/api', // URL base de tu backend
+ baseURL: (import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:5000') + '/api', // URL base del backend
  headers: {
    'Content-Type': 'application/json',
  },

@@ -3,31 +3,14 @@
 /* 🎨 Variables de diseño */
 @theme {
   /* Definición de colores base de la paleta */
-  --color-dark-indigo: #1A237E,
-  --color-medium-blue: #2196F3,
-  --color-amber-orange: #FFC107,
-  --color-light-gray-bg: #F5F5F5,
-  --color-dark-gray-text: #212121,
+  --color-dark-indigo: #1A237E;
+  --color-medium-blue: #2196F3;
+  --color-amber-orange: #FFC107;
+  --color-light-gray-bg: #F5F5F5;
+  --color-dark-gray-text: #212121;
 
   /* Nuevo color para submenús del navbar */
-  --color-dark-indigo-light: #2b368c,
-
-
-
-
-
-  /* Referencias a las variables CSS para usar en clases de Tailwind - No funcionan */
-  --color-bg-primary: var(--color-bg-primary),
-  --color-bg-secondary: var(--color-bg-secondary),
-  --color-text-primary: var(--color-text-primary),
-  --color-text-secondary: var(--color-text-secondary),
-  --color-accent-primary: var(--color-accent-primary),
-  --color-accent-secondary: var(--color-accent-secondary),
-  --color-border-color: var(--color-border),
-  --color-shadow-color: var(--color-shadow),
-  --color-input-bg: var(--color-input-bg),
-  --color-input-border: var(--color-input-border),
-  --color-input-placeholder: var(--color-input-placeholder),
+  --color-dark-indigo-light: #2b368c;
 
   /* Sacado desde la IA */
   --font-sans: "Inter", sans-serif;
@@ -38,8 +21,11 @@
   --radius-base: 0.5rem;
   --shadow-base: 0 4px 12px rgba(0, 0, 0, 0.1);
   --color-bg-primary: #1A237E; /* Azul Oscuro/Índigo */
+  --color-bg-secondary: #FFFFFF; /* Blanco para elementos secundarios */
   --color-accent-primary: #2196F3; /* Azul Claro/Medio */
   --color-text-primary: #2196F3; /* Azul Claro/Medio */
+  --color-bg-header: #2196F3; /* Default/Light theme value */
+  --color-accent-secondary: #FFC107; /* Naranja/Ámbar */
 }
 
 
@@ -52,7 +38,7 @@
  --color-text-secondary: #4A5568; /* Gris medio para texto secundario */
 /* --color-accent-primary: #2196F3; /* Azul Claro/Medio */
  --color-accent-primary: #004D99; /* Azul Claro/Medio */
- --color-accent-secondary: #FFC107; /* Naranja/Ámbar */
+ --color-accent-secondary: #2196F3; /* Naranja/Ámbar */
  --color-border: #E2E8F0;
  --color-shadow: rgba(0, 0, 0, 0.1);
  --color-input-bg: #FFFFFF;
@@ -67,9 +53,10 @@
  --color-bg-secondary: #2D3748; /* Gris oscuro para elementos secundarios */
  --color-text-primary: #F5F5F5; /* Gris Claro/Blanco Roto */
  --color-text-secondary: #A0AEC0; /* Gris claro para texto secundario */
+ --color-bg-header: #1A237E; /* Azul Oscuro/Índigo */
  /* --color-accent-primary: #2196F3; /* Azul Claro/Medio */
  --color-accent-primary: #2196F3; /* Azul Claro/Medio */
- --color-accent-secondary: #FFC107; /* Naranja/Ámbar */
+ --color-accent-secondary: #004D99; /* Naranja/Ámbar */
  --color-border: #4A5568;
  --color-shadow: rgba(0, 0, 0, 0.5);
  --color-input-bg: #1A202C; /* Un gris muy oscuro */

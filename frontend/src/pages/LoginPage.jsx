@@ -59,7 +59,7 @@ const LoginPage = () => {
           {loading ? (
             <Loader />
           ) : (
-            <CustomButton type="primary" className="w-full">
+            <CustomButton variant="primary" className="w-full" type="submit">
               Iniciar Sesión
             </CustomButton>
           )}

@@ -34,8 +34,8 @@ const MyCoursesPage = () => {
     }
 
     return (
-        <div className="pt-20 p-8 bg-bg-primary text-text-primary min-h-screen">
-            <div className="max-w-7xl mx-auto">
+        <div className="mt-28 p-8 bg-bg-primary text-text-primary min-h-screen">
+            <div className="max-w-5xl mx-auto">
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-3xl font-bold">Mis Cursos</h1>
                     <Link 

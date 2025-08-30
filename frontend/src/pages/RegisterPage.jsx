@@ -109,7 +109,7 @@ const RegisterPage = () => {
   };
 
   return (
-    <div className="pt-20 p-4 sm:p-6 md:p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary flex items-center justify-center">
+    <div className="mt-28 p-4 sm:p-6 md:p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary flex items-center justify-center">
       <div className="bg-bg-secondary p-6 sm:p-8 rounded-lg shadow-lg w-full max-w-2xl border border-border-color">
         <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center">Registro de Usuario</h1>
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">

@@ -25,6 +25,8 @@ const DocumentationPage = () => {
     { value: 'PDF', label: 'PDF' },
   ];
 
+  const baseUrl = import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:5000/api';
+
   useEffect(() => {
     const fetchInitialData = async () => {
       try {
@@ -99,7 +101,7 @@ const DocumentationPage = () => {
 
   if (error) {
     return (
-      <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center">
+      <div className="mt-20 md:mt-28 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center">
         <h1 className="text-3xl font-bold mb-4 text-red-500">Error</h1>
         <p className="text-lg">{error}</p>
       </div>
@@ -107,11 +109,12 @@ const DocumentationPage = () => {
   }
 
   return (
-    <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-3xl font-bold">Documentación</h1>
+    <div className="mt-20 md:mt-28 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
+    <div className="max-w-[1024px] m-auto">
+        <h1 className="text-3xl font-bold text-center mb-8">Documentación</h1>
+      <div className="flex justify-end-safe items-center mb-8">
         {isAuthenticated && hasRole(['admin', 'teacher', 'student']) && (
-          <CustomButton type="primary" onClick={() => navigate('/documentation/create')}>
+          <CustomButton variant="primary" onClick={() => navigate('/documentation/create')}>
             Subir Nuevo Documento
           </CustomButton>
         )}
@@ -125,7 +128,7 @@ const DocumentationPage = () => {
         <select
           value={selectedSubject}
           onChange={(e) => setSelectedSubject(e.target.value)}
-          className="px-4 py-2 border rounded-md bg-input-bg text-text-primary border-input-border focus:outline-none focus:ring-2 focus:ring-accent-primary"
+          className="px-4 py-2 border rounded-md bg-input-bg text-text-primary border-input-border focus:outline-none focus:ring-2 focus:ring-accent-primary w-full sm:w-auto"
         >
           <option value="">Todas las Materias</option>
           {Array.isArray(subjects) && subjects.map(subject => (
@@ -166,7 +169,7 @@ const DocumentationPage = () => {
               {doc.cover && ( // Only render if doc.cover exists
                 <div className="mb-4 flex justify-center">
                   <img
-                    src={`http://localhost:5000/api/covers/${doc.cover?._id}`}
+                    src={`${baseUrl}/api/covers/${doc.cover?._id}`}
                     alt={`Portada de ${doc.title}`}
                     className="max-h-40 w-auto rounded-lg shadow-md object-contain"
                   />
@@ -178,7 +181,7 @@ const DocumentationPage = () => {
                 <span>Tipo: {doc.fileType || 'N/A'}</span>
               </div>
               <CustomButton 
-                type="primary" 
+                variant="primary" 
                 className="w-full mt-auto" 
                 onClick={() => navigate(`/documentation/${doc._id}`)}>
                   Ver Documento
@@ -187,6 +190,7 @@ const DocumentationPage = () => {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 };

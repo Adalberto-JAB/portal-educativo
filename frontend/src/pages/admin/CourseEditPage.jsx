@@ -1,20 +1,20 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import courseService from '../../services/courseService';
 import subjectService from '../../services/subjectService';
 import nivelService from '../../services/nivelService';
 import userService from '../../services/userService';
 import coverService from '../../services/coverService';
-import lessonService from '../../services/lessonService'; // Added
+import lessonService from '../../services/lessonService'; 
 import CustomButton from '../../components/CustomButton';
 import Loader from '../../components/Loader';
 import { toast } from 'react-toastify';
-import Swal from 'sweetalert2'; // Added for delete confirmation
+import Swal from 'sweetalert2'; 
 import { useAuth } from '../../context/AuthContext';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { FaEye, FaEdit, FaTrash, FaChalkboardTeacher } from 'react-icons/fa'; // Added icons
+import { FaEye, FaEdit, FaTrash, FaChalkboardTeacher } from 'react-icons/fa'; 
 
 const validationSchema = yup.object().shape({
   title: yup.string().required('El título es requerido'),
@@ -72,8 +72,8 @@ const CourseEditPage = () => {
       setValue('isApproved', fetchedCourse.isApproved || false);
 
       if (fetchedCourse.cover) {
-        //setCurrentCoverUrl(`${import.meta.env.VITE_BACKEND_API_URL}/covers/${fetchedCourse.cover._id}`);
-        setCurrentCoverUrl(`http://localhost:5000/api/covers/${fetchedCourse.cover._id}`);
+        setCurrentCoverUrl(`${import.meta.env.VITE_BACKEND_API_URL}/covers/${fetchedCourse.cover._id}`);
+//        setCurrentCoverUrl(`http://localhost:5000/api/covers/${fetchedCourse.cover._id}`);
       }
 
       const [fetchedSubjects, fetchedNiveles] = await Promise.all([
@@ -303,8 +303,8 @@ const CourseEditPage = () => {
           )}
 
           <div className="flex justify-end gap-4 mt-4">
-            <CustomButton type="secondary" onClick={() => navigate('/admin/courses')} disabled={loading}>Cancelar</CustomButton>
-            <CustomButton type="primary" type="submit" disabled={loading}>
+            <CustomButton variant="secondary" onClick={() => navigate('/admin/courses')} disabled={loading}>Cancelar</CustomButton>
+            <CustomButton variant="primary" type="submit" disabled={loading}>
               {loading ? <Loader /> : 'Guardar Cambios'}
             </CustomButton>
           </div>
@@ -316,7 +316,7 @@ const CourseEditPage = () => {
           
           {canManageLessons && (
             <div className="mb-4">
-              <CustomButton type="primary" onClick={() => navigate(`/admin/courses/${id}/lessons/create`)}>
+              <CustomButton variant="primary" onClick={() => navigate(`/admin/courses/${id}/lessons/create`)}>
                 <FaChalkboardTeacher className="mr-2" /> Añadir Nueva Lección
               </CustomButton>
             </div>

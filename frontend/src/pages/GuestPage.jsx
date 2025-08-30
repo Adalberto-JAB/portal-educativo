@@ -20,7 +20,7 @@ const GuestPage = () => {
      <p className="text-lg md:text-xl text-center mb-8">
        Puedes explorar el contenido público sin necesidad de iniciar sesión.
      </p>
-     <CustomButton onClick={handleGuestLogin} type="secondary">
+     <CustomButton onClick={handleGuestLogin} variant="secondary">
        Continuar como Invitado
      </CustomButton>
    </div>

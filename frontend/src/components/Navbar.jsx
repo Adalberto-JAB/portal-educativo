@@ -26,13 +26,13 @@ const adminLinks = [
 
 const Navbar = () => {
   const { isAuthenticated, user, logout, hasRole } = useAuth();
-  const { theme, getButtonStyles } = useTheme();
+  const { getButtonStyles } = useTheme();
   const navigate = useNavigate();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isResourcesDropdownOpen, setIsResourcesDropdownOpen] = useState(false);
   const [isAdminDropdownOpen, setIsAdminDropdownOpen] = useState(false);
-  const [navbarBackground, setNavbarBackground] = useState("bg-transparent");
+  const [navbarBackground, setNavbarBackground] = useState("bg-bg-header");
 
   const resourcesRef = useRef(null);
   const adminRef = useRef(null);
@@ -41,7 +41,7 @@ const Navbar = () => {
     if (window.scrollY > 50) {
       setNavbarBackground("bg-dark-indigo shadow-md");
     } else {
-      setNavbarBackground("bg-transparent");
+      setNavbarBackground("bg-bg-header");
     }
   }, []);
 
@@ -130,7 +130,8 @@ const Navbar = () => {
         }`}
       >
         <div className="container mx-auto flex justify-between items-center px-4">
-          <Link to="/" className={`text-2xl font-bold ${linkTextClass}`}>
+          <Link to="/" className={`text-2xl md:text-4xl font-bold ${linkTextClass} flex items-center`}>
+            <span className="mr-2 md:text-5xl">📚</span>
             EduTec
           </Link>
 
@@ -240,7 +241,7 @@ const Navbar = () => {
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className={`${getButtonStyles("secondary")} px-3 py-2`}
+                  className={`${getButtonStyles("secondary")} px-3 py-2 cursor-pointer`}
                 >
                   Salir
                 </button>
@@ -351,7 +352,7 @@ const Navbar = () => {
               <MobileNavLink to="/profile">Hola, {user.name}</MobileNavLink>
               <button
                 onClick={handleLogout}
-                className={`${getButtonStyles("secondary")} w-full text-left px-3 py-2 mt-2`}
+                className={`${getButtonStyles("secondary")} w-full text-left px-3 py-2 mt-2 cursor-pointer`}
               >
                 Salir
               </button>

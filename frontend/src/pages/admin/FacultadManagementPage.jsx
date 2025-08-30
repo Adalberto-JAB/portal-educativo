@@ -86,7 +86,7 @@ const FacultadManagementPage = () => {
    <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
      <div className="flex justify-between items-center mb-8">
        <h1 className="text-3xl font-bold">Gestión de Facultades</h1>
-       <CustomButton type="primary" onClick={() => navigate('/admin/facultades/create')}>Crear Nueva Facultad</CustomButton>
+       <CustomButton variant="primary" onClick={() => navigate('/admin/facultades/create')}>Crear Nueva Facultad</CustomButton>
      </div>
 
      {facultades.length === 0 ? (

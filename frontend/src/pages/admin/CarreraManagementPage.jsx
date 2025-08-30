@@ -86,7 +86,7 @@ const CarreraManagementPage = () => {
    <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
      <div className="flex justify-between items-center mb-8">
        <h1 className="text-3xl font-bold">Gestión de Carreras</h1>
-       <CustomButton type="primary" onClick={() => navigate('/admin/carreras/create')}>Crear Nueva Carrera</CustomButton>
+       <CustomButton variant="primary" onClick={() => navigate('/admin/carreras/create')}>Crear Nueva Carrera</CustomButton>
      </div>
 
      {carreras.length === 0 ? (

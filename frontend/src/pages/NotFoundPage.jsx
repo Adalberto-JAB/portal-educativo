@@ -12,7 +12,7 @@ const NotFoundPage = () => {
      <p className="text-lg text-text-secondary mb-8">
        Lo sentimos, la página que buscas no existe.
      </p>
-     <CustomButton type="primary" onClick={() => navigate(-1)}>Volver al Inicio</CustomButton>
+     <CustomButton variant="primary" onClick={() => navigate(-1)}>Volver al Inicio</CustomButton>
    </div>
  );
 };

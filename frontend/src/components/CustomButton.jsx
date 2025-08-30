@@ -1,4 +1,3 @@
-import React from 'react';
 import { useTheme } from '../context/ThemeContext';
 
 const CustomButton = ({ children, variant = 'primary', type = 'button', onClick, className = '', ...props }) => {

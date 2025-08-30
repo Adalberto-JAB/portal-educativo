@@ -14,10 +14,10 @@ const router = express.Router();
 
 router.route('/')
    .post(protect, forumPostValidationRules.create, createForumPost) // Cualquier usuario autenticado puede crear un post
-   .get(protect, getForumPosts); // Cualquiera puede ver los posts (filtrado por isApproved para no-admins/teachers)
+   .get(getAuthUser, getForumPosts); // Cualquiera puede ver los posts (filtrado por isApproved para no-admins/teachers)
 
 router.route('/:id')
-   .get(forumPostValidationRules.getById, getForumPostById) // Cualquiera puede ver un post por ID (filtrado por isApproved)
+   .get(getAuthUser, forumPostValidationRules.getById, getForumPostById) // Cualquiera puede ver un post por ID (filtrado por isApproved)
    .put(protect, forumPostValidationRules.update, updateForumPost) // Admin, Teacher o el autor
    .delete(protect, deleteForumPost); // Admin, Teacher o el autor
 

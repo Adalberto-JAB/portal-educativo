@@ -37,14 +37,13 @@ const ForumPage = () => {
   }
 
   return (
-    <div className="pt-20 p-8 min-h-screen bg-bg-primary text-text-primary">
+    <div className="mt-28 p-8 min-h-screen bg-bg-primary text-text-primary">
+    <div className="max-w-[1024px] mx-auto">
       <div className="max-w-5xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <div>
-            <h1 className="text-4xl font-bold">Foros de Discusión</h1>
-            <p className="text-lg text-text-secondary mt-2">Participa en discusiones, haz preguntas y comparte conocimientos.</p>
-          </div>
-          <CustomButton type="primary" onClick={() => navigate('/forums/create')}>
+            <h1 className="text-4xl font-bold mb-8 text-center">Foros de Discusión</h1>
+            <p className="text-lg text-text-secondary mb-4 text-start">Participa en discusiones, haz preguntas y comparte conocimientos.</p>
+        <div className="flex justify-end-safe mb-8">
+          <CustomButton variant="primary" onClick={() => navigate('/forums/create')}>
             Crear Nuevo Post
           </CustomButton>
         </div>
@@ -74,6 +73,7 @@ const ForumPage = () => {
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };

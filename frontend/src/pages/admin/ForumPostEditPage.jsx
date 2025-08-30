@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import forumService from '../../services/forumService';
 import userService from '../../services/userService';
@@ -63,7 +63,7 @@ const ForumPostEditPage = () => {
       } catch (err) {
         console.error('Error fetching data for forum post edit:', err);
         toast.error('Error al cargar datos del post para edición.');
-        setError('No se pudo cargar el post para edición.');
+        setError(err.response?.data?.message || 'No se pudo cargar el post para edición.');
       } finally {
         setLoading(false);
       }
@@ -124,7 +124,7 @@ const ForumPostEditPage = () => {
   }
 
   return (
-    <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
+    <div className="mt-28 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
       <h1 className="text-3xl font-bold mb-6">Editar Post del Foro</h1>
 
       <div className="bg-bg-secondary p-8 rounded-lg shadow-lg w-full max-w-2xl mx-auto border border-border-color">
@@ -162,8 +162,8 @@ const ForumPostEditPage = () => {
           )}
 
           <div className="flex justify-end gap-4 mt-4">
-            <CustomButton type="secondary" onClick={() => navigate('/admin/forums-management')} disabled={loading}>Cancelar</CustomButton>
-            <CustomButton type="primary" type="submit" disabled={loading}>
+            <CustomButton variant="secondary" onClick={() => navigate('/admin/forums-management')} disabled={loading}>Cancelar</CustomButton>
+            <CustomButton variant="primary" type="submit" disabled={loading}>
               {loading ? <Loader /> : 'Guardar Cambios'}
             </CustomButton>
           </div>

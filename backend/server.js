@@ -30,8 +30,8 @@ import nivelRoutes from './src/routes/nivelRoutes.js';
 import facultadRoutes from './src/routes/facultadRoutes.js';
 import carreraRoutes from './src/routes/carreraRoutes.js';
 import subjectAreaRoutes from './src/routes/subjectAreaRoutes.js';
-import holidayRoutes from './src/routes/holidayRoutes.js'; // New import
-import historicalFactRoutes from './src/routes/historicalFactRoutes.js'; // New import
+import holidayRoutes from './src/routes/holidayRoutes.js';
+import historicalFactRoutes from './src/routes/historicalFactRoutes.js';
 
 // Importar rutas de vistas
 import viewRoutes from './src/routes/viewRoutes.js';
@@ -52,8 +52,8 @@ const __dirname = path.dirname(__filename);
 // Configuración de CORS
 const allowedOrigins = [
   'http://localhost:5173', // Origen de desarrollo del frontend
-  // Agrega aquí la URL de tu frontend en producción cuando la tengas
-  // 'https://tu-frontend.onrender.com' 
+  // Agregar aquí la URL del frontend en producción cuando esté disponible
+  // 'https://---frontend.onrender.com' 
 ];
 
 app.use(cors({

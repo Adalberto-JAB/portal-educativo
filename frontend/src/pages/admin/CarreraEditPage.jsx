@@ -142,8 +142,8 @@ const CarreraEditPage = () => {
           </div>
 
           <div className="flex justify-end gap-4 mt-4">
-            <CustomButton type="secondary" onClick={() => navigate('/admin/carreras')} disabled={loading}>Cancelar</CustomButton>
-            <CustomButton type="primary" type="submit" disabled={loading}>
+            <CustomButton variant="secondary" onClick={() => navigate('/admin/carreras')} disabled={loading}>Cancelar</CustomButton>
+            <CustomButton variant="primary" type="submit" disabled={loading}>
               {loading ? <Loader /> : 'Guardar Cambios'}
             </CustomButton>
           </div>

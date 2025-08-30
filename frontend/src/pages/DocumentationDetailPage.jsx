@@ -162,13 +162,13 @@ const DocumentationDetailPage = () => {
 
   return (
     <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
-      <div className="bg-bg-secondary p-8 rounded-lg shadow-lg border border-border-color">
+      <div className="bg-bg-secondary p-8 rounded-lg shadow-lg border border-border-color max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-text-primary mb-4">{documentData.title}</h1>
         <p className="text-lg text-text-secondary mb-6">{documentData.description}</p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
           <p className="text-text-primary"><span className="font-semibold">Autor:</span> {documentData.author ? `${documentData.author.name} ${documentData.author.last_name}` : 'Desconocido'}</p>
-          <p className="text-text-primary"><span className="font-semibold">Tipo de Archivo:</span> {documentData.fileType}</p>
+          <p className="text-text-primary md:text-end md:pr-5"><span className="font-semibold">Tipo de Archivo:</span> {documentData.fileType}</p>
           <p className="text-text-primary"><span className="font-semibold">Aprobado:</span> {documentData.isPublished ? 'Sí' : 'No'}</p>
         </div>
 
@@ -176,7 +176,7 @@ const DocumentationDetailPage = () => {
         {renderFileViewer()}
 
         <div className="mt-8 text-center">
-          <CustomButton type="secondary" onClick={() => navigate('/documentation')}>Volver a la Documentación</CustomButton>
+          <CustomButton variant="secondary" onClick={() => navigate('/documentation')}>Volver a la Documentación</CustomButton>
         </div>
       </div>
     </div>
