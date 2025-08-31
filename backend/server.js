@@ -51,10 +51,9 @@ const __dirname = path.dirname(__filename);
 // Middlewares de seguridad y parseo
 // Configuración de CORS
 const allowedOrigins = [
-  'http://localhost:5173', // Origen de desarrollo del frontend
-  // Agregar aquí la URL del frontend en producción cuando esté disponible
-  // 'https://---frontend.onrender.com' 
-];
+  'http://localhost:5173', 
+  'https://portal-educativo.onrender.com/',
+]; // Agregar aquí los orígenes permitidos
 
 app.use(cors({
   origin: function (origin, callback) {
