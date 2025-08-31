@@ -1,0 +1,1 @@
+import{A as e}from"./index-CDtZe3id.js";const r={getFacultades:async()=>(await e.get("/facultades")).data,getFacultadById:async a=>(await e.get(`/facultades/${a}`)).data,createFacultad:async a=>(await e.post("/facultades",a)).data,updateFacultad:async(a,t)=>(await e.put(`/facultades/${a}`,t)).data,deleteFacultad:async a=>(await e.delete(`/facultades/${a}`)).data};export{r as f};

@@ -1,0 +1,1 @@
+import{A as e}from"./index-CDtZe3id.js";const n={getCarreras:async()=>(await e.get("/carreras")).data,getCarreraById:async r=>(await e.get(`/carreras/${r}`)).data,createCarrera:async r=>(await e.post("/carreras",r)).data,updateCarrera:async(r,a)=>(await e.put(`/carreras/${r}`,a)).data,deleteCarrera:async r=>(await e.delete(`/carreras/${r}`)).data};export{n as c};

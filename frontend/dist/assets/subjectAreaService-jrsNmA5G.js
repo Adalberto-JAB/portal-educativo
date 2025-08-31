@@ -1,0 +1,1 @@
+import{A as s}from"./index-CDtZe3id.js";const n=async()=>(await s.get("/subject-areas")).data,c=async e=>(await s.get(`/subject-areas/${e}`)).data,o=async e=>(await s.post("/subject-areas",e)).data,u=async(e,a)=>(await s.put(`/subject-areas/${e}`,a)).data,p=async e=>(await s.delete(`/subject-areas/${e}`)).data;export{c as a,o as c,p as d,n as g,u};

@@ -1,0 +1,1 @@
+import{A as s}from"./index-CDtZe3id.js";const r={getNiveles:async()=>(await s.get("/niveles")).data,getNivelById:async e=>(await s.get(`/niveles/${e}`)).data,createNivel:async e=>(await s.post("/niveles",e)).data,updateNivel:async(e,n)=>(await s.put(`/niveles/${e}`,n)).data,deleteNivel:async e=>(await s.delete(`/niveles/${e}`)).data};export{r as n};

@@ -1,0 +1,1 @@
+import{A as s}from"./index-CDtZe3id.js";const r={getSubjects:async()=>(await s.get("/subjects")).data,getSubjectById:async e=>(await s.get(`/subjects/${e}`)).data,createSubject:async e=>(await s.post("/subjects",e)).data,updateSubject:async(e,t)=>(await s.put(`/subjects/${e}`,t)).data,deleteSubject:async e=>(await s.delete(`/subjects/${e}`)).data};export{r as s};

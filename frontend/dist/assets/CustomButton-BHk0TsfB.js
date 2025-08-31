@@ -1,0 +1,1 @@
+import{I as m,j as c}from"./index-CDtZe3id.js";const x=({children:t,variant:s="primary",type:o="button",onClick:e,className:n="",...u})=>{const{getButtonStyles:r}=m(),a=r(s);return c.jsx("button",{type:o,onClick:e,className:`${a} ${n}`,...u,children:t})};export{x as C};

@@ -1,0 +1,1 @@
+import{A as r}from"./index-CDtZe3id.js";const n={getUsers:async(s="")=>(await r.get(`/users${s?`?role=${s}`:""}`)).data,getUserById:async s=>(await r.get(`/users/${s}`)).data,updateUser:async(s,e)=>(await r.put(`/users/${s}`,e)).data,deleteUser:async s=>(await r.delete(`/users/${s}`)).data,changePassword:async s=>(await r.put("/users/change-password",s)).data};export{n as u};
