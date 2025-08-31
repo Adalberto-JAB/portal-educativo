@@ -52,7 +52,7 @@ const __dirname = path.dirname(__filename);
 // Configuración de CORS
 const allowedOrigins = [
   'http://localhost:5173', 
-  'https://portal-educativo.onrender.com/',
+  'https://portal-educativo.onrender.com',
 ]; // Agregar aquí los orígenes permitidos
 
 app.use(cors({
