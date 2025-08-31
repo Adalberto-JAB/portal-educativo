@@ -5,6 +5,8 @@ import Loader from "../../components/Loader";
 import CustomButton from "../../components/CustomButton";
 import { toast } from "react-toastify";
 import { useAuth } from "../../context/AuthContext";
+import Swal from "sweetalert2";
+import { FaEdit, FaTrash, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 
 const ForumManagementPage = () => {
   const navigate = useNavigate();
@@ -53,45 +55,74 @@ const ForumManagementPage = () => {
     }
   }, [isAllowed, isAdmin, user]);
 
-  const handleDelete = async (id) => {
-    if (
-      window.confirm(
-        "¿Estás seguro de que quieres eliminar este post del foro?"
-      )
-    ) {
-      try {
-        setLoading(true);
-        await forumService.deleteForumPost(id);
-        toast.success("Post del foro eliminado exitosamente.");
-        fetchForumPosts();
-      } catch (err) {
-        console.error("Error deleting forum post:", err);
-        toast.error(
-          err.response?.data?.message || "Error al eliminar el post del foro."
-        );
-        setLoading(false);
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: "No podrás revertir esta acción.",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, ¡eliminar!',
+      cancelButtonText: 'Cancelar'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          setLoading(true);
+          await forumService.deleteForumPost(id);
+          Swal.fire(
+            '¡Eliminado!',
+            'El post del foro ha sido eliminado.',
+            'success'
+          )
+          fetchForumPosts();
+        } catch (err) {
+          console.error("Error deleting forum post:", err);
+          Swal.fire(
+            'Error',
+            err.response?.data?.message || "Error al eliminar el post del foro.",
+            'error'
+          )
+        } finally {
+          setLoading(false);
+        }
       }
-    }
+    })
   };
 
-  const handleApproveToggle = async (id, currentStatus) => {
-    try {
-      setLoading(true);
-      await forumService.approveForumPost(id, !currentStatus);
-      toast.success(
-        `Post del foro ${
-          !currentStatus ? "aprobado" : "desaprobado"
-        } exitosamente.`
-      );
-      fetchForumPosts();
-    } catch (err) {
-      console.error("Error toggling forum post approval:", err);
-      toast.error(
-        err.response?.data?.message ||
-          "Error al cambiar el estado de aprobación del post."
-      );
-      setLoading(false);
-    }
+  const handleApproveToggle = (id, currentStatus) => {
+    Swal.fire({
+      title: '¿Estás seguro?',
+      text: `¿Deseas ${currentStatus ? "desaprobar" : "aprobar"} este post?`,
+      icon: 'question',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sí, continuar',
+      cancelButtonText: 'Cancelar'
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          setLoading(true);
+          await forumService.approveForumPost(id, !currentStatus);
+          Swal.fire(
+            '¡Actualizado!',
+            `El post ha sido ${!currentStatus ? "aprobado" : "desaprobado"}.`,
+            'success'
+          )
+          fetchForumPosts();
+        } catch (err) {
+          console.error("Error toggling forum post approval:", err);
+          Swal.fire(
+            'Error',
+            err.response?.data?.message || "Error al cambiar el estado de aprobación.",
+            'error'
+          )
+        } finally {
+          setLoading(false);
+        }
+      }
+    })
   };
 
   if (loading) {
@@ -126,14 +157,8 @@ const ForumManagementPage = () => {
   return (
     <div className="mt-28 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
       <div className="max-w-[1024px] mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-center w-full">Gestión de Foros</h1>
-          {/* Enlace a la página de creación de posts si es necesario, aunque los posts se crean desde el foro principal */}
-          {/* <a onClick={() => navigate('/forums/create')}>
-         <CustomButton type="primary">Crear Nuevo Post</CustomButton>
-       </a> */}
-        </div>
-
+          <h1 className="text-3xl font-bold text-center w-full mb-8">Gestión de Foros</h1>
+        
         {forumPosts.length === 0 ? (
           <div className="text-center text-text-secondary">
             <p>No hay posts de foro para gestionar en este momento.</p>
@@ -196,36 +221,45 @@ const ForumManagementPage = () => {
                         </span>
                       </td>
                       <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                        <a
-                          onClick={() =>
-                            navigate(
-                              `/admin/forums-management/edit/${post._id}`
-                            )
-                          }
-                          className="text-accent-primary hover:text-blue-700 mr-3 cursor-pointer"
-                        >
-                          Editar
-                        </a>
-                        {isAdmin && (
-                          <button
-                            onClick={() =>
-                              handleApproveToggle(post._id, post.isApproved)
-                            }
-                            className={`mr-3 ${
-                              post.isApproved
-                                ? "text-yellow-600 hover:text-yellow-900"
-                                : "text-green-600 hover:text-green-900"
-                            }`}
-                          >
-                            {post.isApproved ? "Desaprobar" : "Aprobar"}
-                          </button>
-                        )}
-                        <button
-                          onClick={() => handleDelete(post._id)}
-                          className="text-red-600 hover:text-red-900"
-                        >
-                          Eliminar
-                        </button>
+                        <div className="flex items-center justify-end space-x-4">
+                            <button
+                                onClick={() =>
+                                    navigate(
+                                    `/admin/forums-management/edit/${post._id}`
+                                    )
+                                }
+                                className="text-gray-400 hover:text-accent-primary"
+                                title="Editar"
+                                >
+                                <FaEdit />
+                            </button>
+                            {isAdmin && (
+                                <button
+                                onClick={() =>
+                                    handleApproveToggle(post._id, post.isApproved)
+                                }
+                                className={
+                                    post.isApproved
+                                    ? "text-yellow-500 hover:text-yellow-700"
+                                    : "text-green-500 hover:text-green-700"
+                                }
+                                title={post.isApproved ? "Desaprobar" : "Aprobar"}
+                                >
+                                {post.isApproved ? (
+                                    <FaTimesCircle />
+                                ) : (
+                                    <FaCheckCircle />
+                                )}
+                                </button>
+                            )}
+                            <button
+                                onClick={() => handleDelete(post._id)}
+                                className="text-gray-400 hover:text-red-600"
+                                title="Eliminar"
+                                >
+                                <FaTrash />
+                            </button>
+                        </div>
                       </td>
                     </tr>
                   ))}

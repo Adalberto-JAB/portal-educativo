@@ -21,6 +21,8 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
     const [coverFileError, setCoverFileError] = useState('');
     const [coverPreview, setCoverPreview] = useState(null);
     const [contentFileError, setContentFileError] = useState('');
+    const [coverFileName, setCoverFileName] = useState('');
+    const [contentFileName, setContentFileName] = useState('');
 
     const selectedFileType = watch('fileType');
 
@@ -49,6 +51,18 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
         loadSelectData();
     }, []);
 
+    useEffect(() => {
+        if (isEditing && initialData) {
+            if (initialData.cover) {
+                setCoverPreview(`${import.meta.env.VITE_BACKEND_API_URL}/api/covers/${initialData.cover._id}`);
+                setCoverFileName(initialData.cover.name);
+            }
+            if (initialData.originalContentFileName) {
+                setContentFileName(initialData.originalContentFileName);
+            }
+        }
+    }, [initialData, isEditing]);
+
     // Vista previa de la portada
     const handleCoverFileChange = (e) => {
         const file = e.target.files[0];
@@ -56,9 +70,11 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
             if (!['image/jpeg', 'image/png', 'image/webp'].includes(file.type)) {
                 setCoverFileError('Solo se permiten imágenes JPG, PNG o WEBP para la portada.');
                 setCoverPreview(null);
+                setCoverFileName('');
                 setError('coverFile', { type: 'manual', message: 'Formato de imagen inválido.' });
             } else {
                 setCoverFileError('');
+                setCoverFileName(file.name);
                 clearErrors('coverFile');
                 const reader = new FileReader();
                 reader.onloadend = () => {
@@ -68,6 +84,7 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
             }
         } else {
             setCoverPreview(null);
+            setCoverFileName('');
             setCoverFileError('');
             clearErrors('coverFile');
         }
@@ -77,8 +94,9 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
     const handleContentFileChange = (e) => {
         const file = e.target.files[0];
         const selectedType = fileTypeEnum.find(ft => ft.value === selectedFileType);
-        if (file && selectedType) {
-            if (!selectedType.mime.includes(file.type)) {
+        if (file) {
+            setContentFileName(file.name);
+            if (selectedType && !selectedType.mime.includes(file.type)) {
                 setContentFileError(`El archivo debe ser de tipo ${selectedType.label}.`);
                 setError('contentFile', { type: 'manual', message: `Formato de archivo inválido para ${selectedType.label}.` });
             } else {
@@ -86,6 +104,7 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
                 clearErrors('contentFile');
             }
         } else {
+            setContentFileName('');
             setContentFileError('');
             clearErrors('contentFile');
         }
@@ -198,6 +217,7 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
                         className="w-full px-3 py-2 border rounded-md bg-input-bg text-text-primary border-input-border"
                         onChange={handleCoverFileChange}
                     />
+                    {coverFileName && <p className="text-sm text-gray-500 mt-1">Archivo: {coverFileName}</p>}
                     {coverFileError && <p className="text-red-500 text-xs mt-1">{coverFileError}</p>}
                     {coverPreview && (
                         <div className="mt-2">
@@ -216,6 +236,7 @@ const DocumentationForm = ({ onSubmit, initialData = {}, isEditing = false }) =>
                         className="w-full px-3 py-2 border rounded-md bg-input-bg text-text-primary border-input-border"
                         onChange={handleContentFileChange}
                     />
+                    {contentFileName && <p className="text-sm text-gray-500 mt-1">Archivo: {contentFileName}</p>}
                     {contentFileError && <p className="text-red-500 text-xs mt-1">{contentFileError}</p>}
                     {errors.contentFile && <p className="text-red-500 text-xs mt-1">{errors.contentFile.message}</p>}
                 </div>

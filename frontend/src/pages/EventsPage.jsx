@@ -14,7 +14,7 @@ import {
 } from "react-icons/fa";
 
 const baseUrl =
-  import.meta.env.VITE_BACKEND_API_URL || "http://localhost:5000/api";
+  (import.meta.env.VITE_BACKEND_API_URL || 'http://localhost:5000') + '/api';
 
 // --- Componente Modal ---
 const ConferenceModal = ({ conference, onClose }) => {

@@ -4,12 +4,6 @@ import { useAuth } from "../context/AuthContext";
 import { useTheme } from "../context/ThemeContext";
 import { FaBars, FaTimes, FaCaretDown } from "react-icons/fa";
 
-const resourcesLinks = [
-  { to: "/dashboard", label: "Dashboard" },
-  { to: "/forums", label: "Foros" },
-  { to: "/events", label: "Congresos" },
-];
-
 const adminLinks = [
   { to: "/admin/users", label: "Gestión de Usuarios" },
   { to: "/admin/courses", label: "Gestión de Cursos" },
@@ -36,6 +30,17 @@ const Navbar = () => {
 
   const resourcesRef = useRef(null);
   const adminRef = useRef(null);
+
+  const baseResources = [
+    { to: "/dashboard", label: "Dashboard" },
+    { to: "/forums", label: "Foros" },
+    { to: "/events", label: "Congresos" },
+  ];
+
+  let resourcesLinks = [...baseResources];
+  if (isAuthenticated && hasRole(["admin", "teacher"])) {
+    resourcesLinks.push({ to: "/my-courses", label: "Mis Cursos" });
+  }
 
   const handleScroll = useCallback(() => {
     if (window.scrollY > 50) {
@@ -155,15 +160,6 @@ const Navbar = () => {
             >
               Biblioteca
             </Link>
-
-            {isAuthenticated && hasRole(["admin", "teacher"]) && (
-              <Link
-                to="/my-courses"
-                className={`${linkTextClass} ${hoverBgClass} px-3 py-2 rounded-md`}
-              >
-                Mis Cursos
-              </Link>
-            )}
 
             {/* Menú desplegable de Recursos */}
             <div className="relative" ref={resourcesRef}>
@@ -287,10 +283,6 @@ const Navbar = () => {
           <MobileNavLink to="/">Inicio</MobileNavLink>
           <MobileNavLink to="/courses">Cursos</MobileNavLink>
           <MobileNavLink to="/documentation">Biblioteca</MobileNavLink>
-
-          {isAuthenticated && hasRole(["admin", "teacher"]) && (
-            <MobileNavLink to="/my-courses">Mis Cursos</MobileNavLink>
-          )}
 
           {/* Menú desplegable de Recursos para móvil */}
           <div>

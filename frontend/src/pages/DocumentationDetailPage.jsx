@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import documentationService from '../services/documentationService';
 import Loader from '../components/Loader';
@@ -86,7 +86,7 @@ const DocumentationDetailPage = () => {
 
   if (loading) {
     return (
-      <div className="pt-20 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
+      <div className="mt-28 flex flex-col items-center justify-center min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
         <Loader />
         <p className="mt-4">Cargando documento...</p>
       </div>
@@ -95,7 +95,7 @@ const DocumentationDetailPage = () => {
 
   if (error) {
     return (
-      <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center">
+      <div className="mt-28 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center">
         <h1 className="text-3xl font-bold mb-4 text-red-500">Error</h1>
         <p className="text-lg">{error}</p>
         <a onClick={() => navigate('/documentation')} className="text-accent-primary hover:underline mt-4 block cursor-pointer">Volver a la Documentación</a>
@@ -105,7 +105,7 @@ const DocumentationDetailPage = () => {
 
   if (!documentData || !fileContentUrl) {
     return (
-      <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center">
+      <div className="mt-28 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary text-center">
         <h1 className="text-3xl font-bold mb-4">Documento No Encontrado</h1>
         <p className="text-lg">El documento que buscas no está disponible.</p>
         <a onClick={() => navigate('/documentation')} className="text-accent-primary hover:underline mt-4 block cursor-pointer">Volver a la Documentación</a>
@@ -161,7 +161,7 @@ const DocumentationDetailPage = () => {
   };
 
   return (
-    <div className="pt-20 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
+    <div className="mt-28 p-8 min-h-[calc(100vh-80px)] bg-bg-primary text-text-primary">
       <div className="bg-bg-secondary p-8 rounded-lg shadow-lg border border-border-color max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-text-primary mb-4">{documentData.title}</h1>
         <p className="text-lg text-text-secondary mb-6">{documentData.description}</p>

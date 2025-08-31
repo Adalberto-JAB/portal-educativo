@@ -78,7 +78,8 @@ const CoursesPage = () => {
         ]);
 
         setAllCourses(coursesData);
-        setSubjects(subjectsData);
+        const sortedSubjects = [...subjectsData].sort((a, b) => a.name.localeCompare(b.name));
+        setSubjects(sortedSubjects);
       } catch (err) {
         console.error("Error fetching initial data:", err);
         setError(
